@@ -1,44 +1,36 @@
-#!/usr/bin/env python3
 from setuptools import setup, find_packages
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
+with open("requirements.txt", "r", encoding="utf-8") as fh:
+    requirements = fh.read().splitlines()
+
 setup(
-    name="rf-scanner-ai",
+    name="rf-signal-detector",
     version="1.0.0",
     author="Signal Research Lab",
-    author_email="signalresearchlab@gmail.com",
-    description="Advanced RF Signal Detection & Analysis with AI/ML",
+    author_email="your-email@example.com",
+    description="Advanced RF Signal Detection and Analysis Tool",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/signalresearchlab/rf-scan-AI-ML-DL-Professional",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 4 - Beta",
-        "Intended Audience :: Science/Research",
+        "Intended Audience :: Information Technology",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
         "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9", 
+        "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
-        "Topic :: Scientific/Engineering",
-        "Topic :: Communications :: Ham Radio",
     ],
-    python_requires=">=3.8",
-    install_requires=[
-        "click>=8.0.0",
-        "flask>=2.0.0",
-        "numpy>=1.21.0",
-        "pandas>=1.3.0",
-        "matplotlib>=3.5.0",
-        "scikit-learn>=1.0.0",
-        "rich>=10.0.0",
-    ],
+    python_requires=">=3.7",
+    install_requires=requirements,
     entry_points={
         "console_scripts": [
-            "rf-scan=cli:cli",
+            "rf-detector=rf_detector.cli:main",
         ],
     },
     include_package_data=True,
